@@ -19,6 +19,91 @@
         class="wrapper__banner__img"
       />
     </div>
+
+
+    <!-- 九宫格区域 -->
+    <div class="wrapper__icons">
+      <div class="wrapper__icons__item">
+        <img
+          src="https://pic-go.oss-cn-shanghai.aliyuncs.com/jingdong/%E8%B6%85%E5%B8%82.png"
+          alt=""
+          class="wrapper__icons__item__img"
+        />
+        <p class="wrapper__icons__item__desc">超市便利</p>
+      </div>
+      <div class="wrapper__icons__item">
+        <img
+          src="https://pic-go.oss-cn-shanghai.aliyuncs.com/jingdong/%E9%B2%9C%E8%8A%B1.png"
+          alt=""
+          class="wrapper__icons__item__img"
+        />
+        <p class="wrapper__icons__item__desc">鲜花</p>
+      </div>
+      <div class="wrapper__icons__item">
+        <img
+          src="https://pic-go.oss-cn-shanghai.aliyuncs.com/jingdong/%E8%9B%8B%E7%B3%95.png"
+          alt=""
+          class="wrapper__icons__item__img"
+        />
+        <p class="wrapper__icons__item__desc">蛋糕</p>
+      </div>
+      <div class="wrapper__icons__item">
+        <img
+          src="https://pic-go.oss-cn-shanghai.aliyuncs.com/jingdong/%E8%8F%9C%E5%B8%82%E5%9C%BA.png"
+          alt=""
+          class="wrapper__icons__item__img"
+        />
+        <p class="wrapper__icons__item__desc">菜市场</p>
+      </div>
+      <div class="wrapper__icons__item">
+        <img
+          src="https://pic-go.oss-cn-shanghai.aliyuncs.com/jingdong/%E7%BA%A2%E5%8C%85.png"
+          alt=""
+          class="wrapper__icons__item__img"
+        />
+        <p class="wrapper__icons__item__desc">红包</p>
+      </div>
+      <div class="wrapper__icons__item">
+        <img
+          src="https://pic-go.oss-cn-shanghai.aliyuncs.com/jingdong/%E7%AD%BE%E5%88%B0.png"
+          alt=""
+          class="wrapper__icons__item__img"
+        />
+        <p class="wrapper__icons__item__desc">签到</p>
+      </div>
+      <div class="wrapper__icons__item">
+        <img
+          src="https://pic-go.oss-cn-shanghai.aliyuncs.com/jingdong/%E6%B0%B4%E6%9E%9C%E5%BA%97.png"
+          alt=""
+          class="wrapper__icons__item__img"
+        />
+        <p class="wrapper__icons__item__desc">水果店</p>
+      </div>
+      <div class="wrapper__icons__item">
+        <img
+          src="https://pic-go.oss-cn-shanghai.aliyuncs.com/jingdong/%E5%AE%B6%E5%B1%85.png"
+          alt=""
+          class="wrapper__icons__item__img"
+        />
+        <p class="wrapper__icons__item__desc">家居</p>
+      </div>
+      <div class="wrapper__icons__item">
+        <img
+          src="https://pic-go.oss-cn-shanghai.aliyuncs.com/jingdong/%E5%A4%A7%E7%89%8C%E5%85%8D%E8%BF%90.png"
+          alt=""
+          class="wrapper__icons__item__img"
+        />
+        <p class="wrapper__icons__item__desc">大牌免运</p>
+      </div>
+      <div class="wrapper__icons__item">
+        <img
+          src="https://pic-go.oss-cn-shanghai.aliyuncs.com/jingdong/%E5%8C%BB%E8%8D%AF%E5%81%A5%E5%BA%B7.png"
+          alt=""
+          class="wrapper__icons__item__img"
+        />
+        <p class="wrapper__icons__item__desc">医药健康</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -31,6 +116,7 @@
   top: 0;
   bottom: 0.5rem;
   padding: 0 0.18rem;
+  /*顶部定位和通知 */
   &__position {
     position: relative;
     padding: 0.16rem 0.16rem 0.16rem 0;
@@ -47,6 +133,7 @@
     }
     color: $content-fontcolor;
   }
+  /*搜索 */
   &__search {
     margin-bottom: 0.12rem;
     line-height: 0.32rem;
@@ -63,6 +150,7 @@
       font-size: 0.14rem;
     }
   }
+  /*banner */
   &__banner {
     /* hack技巧，预留出高度防抖(图片高/图片宽)*/
     // padding-bottom: 24.4%;
@@ -70,5 +158,29 @@
       width: 100%;
     }
   }
+  /*九宫格 */
+  &__icons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.16rem;
+  &__item {
+    width: 20%;
+    &__img {
+      display: block;
+      width: 0.4rem;
+      height: 0.4rem;
+      margin: 0 auto;
+    }
+    &__desc {
+      margin: 0.06rem 0 0.16rem 0;
+      text-align: center;
+      color: $content-fontcolor;
+    }
+  }
 }
+}
+
+
+
+
 </style>
