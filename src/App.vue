@@ -20,7 +20,6 @@
       />
     </div>
 
-
     <!-- 九宫格区域 -->
     <div class="wrapper__icons">
       <div class="wrapper__icons__item">
@@ -104,11 +103,18 @@
         <p class="wrapper__icons__item__desc">医药健康</p>
       </div>
     </div>
+
+    <!-- 灰条分割 -->
+    <div class="wrapper__gap"></div>
   </div>
+
+  <!-- 底部导航栏 -->
 </template>
 
 <style lang="scss">
 @import "./style/index.scss";
+
+/*顶部 */ 
 .wrapper {
   position: absolute;
   left: 0;
@@ -160,27 +166,58 @@
   }
   /*九宫格 */
   &__icons {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 0.16rem;
-  &__item {
-    width: 20%;
-    &__img {
-      display: block;
-      width: 0.4rem;
-      height: 0.4rem;
-      margin: 0 auto;
-    }
-    &__desc {
-      margin: 0.06rem 0 0.16rem 0;
-      text-align: center;
-      color: $content-fontcolor;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.16rem;
+    &__item {
+      width: 20%;
+      &__img {
+        display: block;
+        width: 0.4rem;
+        height: 0.4rem;
+        margin: 0 auto;
+      }
+      &__desc {
+        margin: 0.06rem 0 0.16rem 0;
+        text-align: center;
+        color: $content-fontcolor;
+      }
     }
   }
+  /*灰条分割线 */
+  &__gap {
+    margin: 0 -0.18rem;
+    height: 0.1rem;
+    background-color: #f1f1f1;
+  }
 }
+
+/*底部导航栏 */
+.docker {
+  display: flex;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 0.49rem;
+  border: 0.01rem solid #f1f1f1;
+  color: $content-fontcolor;
+  &__item {
+    flex: 1;
+    text-align: center;
+    .iconfont {
+      margin: 0.07rem 0 0.02rem 0;
+      font-size: 0.18rem;
+    }
+    &--active {
+      color: $highlight-color;
+    }
+  }
+  &__tittle {
+    font-size: 0.2rem;
+    transform: scale(0.5, 0.5);
+    transform-origin: center top;
+  }
 }
-
-
-
 
 </style>
