@@ -1,4 +1,6 @@
-# vue
+# jingdong
+
+京东到家项目
 
 ## Project setup
 ```
@@ -22,3 +24,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
