@@ -109,6 +109,24 @@
   </div>
 
   <!-- 底部导航栏 -->
+  <div class="docker">
+    <div class="docker__item docker__item--active">
+      <div class="iconfont">&#xe6b8;</div>
+      <div class="docker__title">首页</div>
+    </div>
+    <div class="docker__item docker__item">
+      <div class="iconfont">&#xe601;</div>
+      <div class="docker__title">订单</div>
+    </div>
+    <div class="docker__item docker__item">
+      <div class="iconfont">&#xe600;</div>
+      <div class="docker__title">购物车</div>
+    </div>
+    <div class="docker__item docker__item">
+      <div class="iconfont">&#xe78b;</div>
+      <div class="docker__title">我的</div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
@@ -116,6 +134,7 @@
 
 /*顶部 */ 
 .wrapper {
+  overflow-y: hidden;
   position: absolute;
   left: 0;
   right: 0;
