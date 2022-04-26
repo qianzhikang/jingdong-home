@@ -1,15 +1,17 @@
 <template>
   <div class="wrapper">
     <StaticPart />
+    <NearbyShop />
   </div>
   <AppDocker :currentIndex="0" />
 </template>
 <script>
 import StaticPart from "./StaticPart.vue";
+import NearbyShop from "./NearbyShop.vue"
 import AppDocker from "../../components/AppDocker.vue";
 export default {
   name: "HomePage",
-  components: { StaticPart, AppDocker },
+  components: { StaticPart, NearbyShop,AppDocker },
 };
 </script>
 
