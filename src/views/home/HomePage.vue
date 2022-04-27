@@ -6,13 +6,13 @@
   <AppDocker :currentIndex="0" />
 </template>
 <script>
-import StaticPart from "./StaticPart.vue";
-import NearbyShop from "./NearbyShop.vue"
-import AppDocker from "../../components/AppDocker.vue";
+import StaticPart from './StaticPart.vue'
+import NearbyShop from './NearbyShop.vue'
+import AppDocker from '../../components/AppDocker.vue'
 export default {
-  name: "HomePage",
-  components: { StaticPart, NearbyShop,AppDocker },
-};
+  name: 'HomePage',
+  components: { StaticPart, NearbyShop, AppDocker }
+}
 </script>
 
 <style lang="scss" scoped>

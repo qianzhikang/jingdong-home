@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-const routes = [  
+const routes = [
   {
     path: '/',
     name: 'HomePage',

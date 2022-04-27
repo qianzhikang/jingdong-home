@@ -22,51 +22,49 @@
       />
     </div>
     <div class="wrapper__login-button" @click="handleLogin">登录</div>
-    <div class="wrapper__login-link" @click="handleRegisterClick">
-      立即注册
-    </div>
+    <div class="wrapper__login-link" @click="handleRegisterClick">立即注册</div>
   </div>
 </template>
 
 <script setup>
-import { reactive, toRefs } from "vue";
-import { useRouter } from "vue-router";
-import { post } from "../../utils/request";
+import { reactive, toRefs } from 'vue'
+import { useRouter } from 'vue-router'
+import { post } from '../../utils/request'
 
 const data = reactive({
-  username: "admin",
-  password: "admin",
-});
+  username: 'admin',
+  password: 'admin'
+})
 
-const router = useRouter();
+const router = useRouter()
 
 const handleLogin = () => {
-  post("/user/login", {
+  post('/user/login', {
     username: data.username,
-    password: data.password,
+    password: data.password
   }).then((result) => {
-    if (result?.code === 200 && result.message === "登陆成功") {
-      localStorage.isLogin = true;
+    if (result?.code === 200 && result.message === '登陆成功') {
+      localStorage.isLogin = true
       router.push({
-        name: "HomePage",
-      });
+        name: 'HomePage'
+      })
     } else {
-      console.log(result.message);
-      data.password = "";
+      console.log(result.message)
+      data.password = ''
     }
-  });
-};
-const { username, password } = toRefs(data);
+  })
+}
+const { username, password } = toRefs(data)
 
 const handleRegisterClick = () => {
   router.push({
-    name: "RegisterPage",
-  });
-};
+    name: 'RegisterPage'
+  })
+}
 </script>
 
 <style scoped lang="scss">
-@import "../../style/virables.scss";
+@import '../../style/virables.scss';
 .wrapper {
   position: absolute;
   top: 50%;
@@ -115,7 +113,7 @@ const handleRegisterClick = () => {
     text-align: center;
   }
 
-  &__login-link{
+  &__login-link {
     text-align: center;
     font-size: 0.14rem;
     color: $content-notice-fontcolor;

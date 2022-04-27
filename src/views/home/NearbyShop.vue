@@ -12,20 +12,20 @@
 </template>
 
 <script setup>
-import { toRefs, reactive } from "vue";
-import { get } from "../../utils/request";
-import ShopInfo from "../../components/ShopInfo"
+import { toRefs, reactive } from 'vue'
+import { get } from '../../utils/request'
+import ShopInfo from '../../components/ShopInfo'
 
-const data = reactive({ nearbyList: [] });
+const data = reactive({ nearbyList: [] })
 
 get('/shop/list').then((result) => {
   if (result?.code === 200 && result?.data) {
     // console.log(result.data);
-    data.nearbyList = result.data;
+    data.nearbyList = result.data
   }
-});
+})
 
-const { nearbyList } = toRefs(data);
+const { nearbyList } = toRefs(data)
 </script>
 <style lang="scss" scoped>
 @import '../../style/virables.scss';
@@ -37,7 +37,7 @@ const { nearbyList } = toRefs(data);
     color: $content-fontcolor;
   }
   a {
-      text-decoration: none;
+    text-decoration: none;
   }
 }
 </style>

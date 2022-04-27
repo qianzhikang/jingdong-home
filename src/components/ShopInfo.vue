@@ -4,7 +4,7 @@
     <div
       :class="{
         shop__content: true,
-        'shop__content--bordered': hideBorder ? false : true,
+        'shop__content--bordered': hideBorder ? false : true
       }"
     >
       <div class="shop__content__title">{{ item.name }}</div>
@@ -22,9 +22,9 @@
 
 <script>
 export default {
-  name: "ShopInfo",
-  props: ["item", "hideBorder"],
-};
+  name: 'ShopInfo',
+  props: ['item', 'hideBorder']
+}
 </script>
 
 <style lang="scss" scoped>
@@ -40,8 +40,8 @@ export default {
   &__content {
     flex: 1;
     padding-bottom: 0.12rem;
-    &--bordered{
-        border-bottom: 0.01rem solid $border-color;
+    &--bordered {
+      border-bottom: 0.01rem solid $border-color;
     }
     &__title {
       line-height: 0.22rem;

@@ -3,14 +3,12 @@
   <AppDocker :currentIndex="1" />
 </template>
 <script>
-import AppDocker from "../../components/AppDocker.vue";
+import AppDocker from '../../components/AppDocker.vue'
 export default {
-  name: "CartPage",
+  name: 'CartPage',
   components: {
-    AppDocker,
-  },
-};
+    AppDocker
+  }
+}
 </script>
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

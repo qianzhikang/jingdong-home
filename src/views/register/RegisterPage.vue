@@ -39,52 +39,52 @@
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
-import { reactive, toRefs } from "vue";
-import { post } from "../../utils/request";
+import { useRouter } from 'vue-router'
+import { reactive, toRefs } from 'vue'
+import { post } from '../../utils/request'
 
-const router = useRouter();
+const router = useRouter()
 
 const data = reactive({
-  username: "",
-  password: "",
-  ensurement: "",
-});
+  username: '',
+  password: '',
+  ensurement: ''
+})
 
 const handleRegister = async () => {
   if (data.password !== data.ensurement) {
-    console.log("两次输入的密码不一致");
-    data.password = "";
-    data.ensurement = "";
-    return;
+    console.log('两次输入的密码不一致')
+    data.password = ''
+    data.ensurement = ''
+    return
   }
   try {
-    const result = await post("/user/register", {
+    const result = await post('/user/register', {
       username: data.username,
-      password: data.password,
-    });
-    if (result?.code === 200 && result.message === "注册成功") {
-      router.push({ name: "LoginPage" });
+      password: data.password
+    })
+    if (result?.code === 200 && result.message === '注册成功') {
+      router.push({ name: 'LoginPage' })
     } else {
-      console.log(result.message);
-      data.username = "";
-      data.password = "";
-      data.ensurement = "";
+      console.log(result.message)
+      data.username = ''
+      data.password = ''
+      data.ensurement = ''
     }
   } catch (e) {
-    console.log("请求失败");
+    console.log('请求失败')
   }
-};
+}
 
-const { username, password, ensurement } = toRefs(data);
+const { username, password, ensurement } = toRefs(data)
 
 const handleLoginClick = () => {
-  router.push({ name: "LoginPage" });
-};
+  router.push({ name: 'LoginPage' })
+}
 </script>
 
 <style scoped lang="scss">
-@import "../../style/virables.scss";
+@import '../../style/virables.scss';
 .wrapper {
   position: absolute;
   top: 50%;
@@ -133,7 +133,7 @@ const handleLoginClick = () => {
     text-align: center;
   }
 
-  &__login-link{
+  &__login-link {
     text-align: center;
     font-size: 0.14rem;
     color: $content-notice-fontcolor;

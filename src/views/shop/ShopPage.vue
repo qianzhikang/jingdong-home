@@ -1,7 +1,9 @@
 <template>
   <div class="wrapper">
     <div class="search">
-      <div class="iconfont search__back" @click="handleBackClick()">&#xe662;</div>
+      <div class="iconfont search__back" @click="handleBackClick()">
+        &#xe662;
+      </div>
       <div class="search__content">
         <span class="search__content__icon iconfont">&#xe64c;</span>
         <input
@@ -12,33 +14,36 @@
       </div>
     </div>
     <shop-info :item="item" :hideBorder="true" v-show="item.imgUrl" />
+    <!-- <shop-content :shopName="item.name"/> -->
+    <shop-content  />
   </div>
 </template>
 
 <script setup>
-import ShopInfo from "@/components/ShopInfo.vue";
-import { reactive, toRefs } from "vue";
-import { useRouter, useRoute } from "vue-router";
-import { get } from "../../utils/request";
-const route = useRoute();
-const data = reactive({ item: {} });
+import ShopInfo from '@/components/ShopInfo.vue'
+import ShopContent from '@/components/ShopContent.vue'
+import { reactive, toRefs } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+import { get } from '../../utils/request'
+const route = useRoute()
+const data = reactive({ item: {} })
 
 get(`/shop/${route.params.id}`).then((result) => {
   if (result?.code === 200 && result?.data) {
-    data.item = result.data;
+    data.item = result.data
   }
-});
+})
 
-const { item } = toRefs(data);
+const { item } = toRefs(data)
 
-const router = useRouter();
+const router = useRouter()
 const handleBackClick = () => {
-  router.back();
-};
+  router.back()
+}
 </script>
 
 <style lang="scss" scoped>
-@import "../../style/virables.scss";
+@import '../../style/virables.scss';
 .wrapper {
   padding: 0 0.18rem;
 }

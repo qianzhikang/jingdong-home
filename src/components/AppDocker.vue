@@ -6,7 +6,7 @@
       :key="index"
       :class="{
         docker__item: true,
-        'docker__item--active': index === currentIndex,
+        'docker__item--active': index === currentIndex
       }"
     >
       <router-link :to="item.to">
@@ -19,34 +19,34 @@
 
 <script>
 export default {
-  name: "AppDocker",
-  props: ["currentIndex"],
+  name: 'AppDocker',
+  props: ['currentIndex'],
   setup() {
     const dockerList = [
       {
-        icon: "&#xe6b8;",
-        text: "首页",
-        to: { name: "HomePage" },
+        icon: '&#xe6b8;',
+        text: '首页',
+        to: { name: 'HomePage' }
       },
       {
-        icon: "&#xe600;",
-        text: "购物车",
-        to: { name: "CartPage" },
+        icon: '&#xe600;',
+        text: '购物车',
+        to: { name: 'CartPage' }
       },
       {
-        icon: "&#xe601;",
-        text: "订单",
-        to: { name: "OrderPage" },
+        icon: '&#xe601;',
+        text: '订单',
+        to: { name: 'OrderPage' }
       },
       {
-        icon: "&#xe78b;",
-        text: "我的",
-        to: { name: "PersonalPage" },
-      },
-    ];
-    return { dockerList };
-  },
-};
+        icon: '&#xe78b;',
+        text: '我的',
+        to: { name: 'PersonalPage' }
+      }
+    ]
+    return { dockerList }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
