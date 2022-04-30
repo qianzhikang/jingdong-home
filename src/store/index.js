@@ -55,6 +55,11 @@ export default createStore({
     setTotal(state, payload) {
       const { shopId, total } = payload
       state.cartList[shopId].total = total
+    },
+    clearCartData(state, shopId) {
+      alert(shopId)
+      delete state.cartList[shopId]
+      setLocalCartList(state)
     }
   },
   actions: {},
