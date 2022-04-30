@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="search">
-      <div class="iconfont search__back" @click="handleBackClick()">
+      <div class="iconfont search__back" @click="handleBackClick">
         &#xe662;
       </div>
       <div class="search__content">
@@ -15,13 +15,15 @@
     </div>
     <shop-info :item="item" :hideBorder="true" v-show="item.imgUrl" />
     <!-- <shop-content :shopName="item.name"/> -->
-    <shop-content  />
+    <shop-content />
+    <shop-cart :shopId="this.route.params.id" />
   </div>
 </template>
 
 <script setup>
-import ShopInfo from '@/components/ShopInfo.vue'
-import ShopContent from '@/components/ShopContent.vue'
+import ShopInfo from '@/components/ShopInfo'
+import ShopContent from './ShopContent.vue'
+import ShopCart from './ShopCart.vue'
 import { reactive, toRefs } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { get } from '../../utils/request'

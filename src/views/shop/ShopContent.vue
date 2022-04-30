@@ -25,8 +25,25 @@
           </p>
         </div>
         <div class="product__number">
-          <span class="product__number__minus iconfont"></span>
-          <span class="product__number__plus iconfont"></span>
+          <span
+            class="product__number__minus iconfont"
+            @click="
+              () => {
+                changeCartItem(shopId, item._id, item, -1)
+              }
+            "
+            >&#xe7fd;</span
+          >
+          {{ getProductCartCount(shopId, item._id) }}
+          <span
+            class="product__number__plus iconfont"
+            @click="
+              () => {
+                changeCartItem(shopId, item._id, item, 1)
+              }
+            "
+            >&#xe8fe;</span
+          >
         </div>
       </div>
     </div>
@@ -36,7 +53,8 @@
 <script setup>
 import { reactive, ref, toRefs, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { get } from '../utils/request'
+import { get } from '../../utils/request'
+import { useStore } from 'vuex'
 
 const categories = [
   { name: '全部商品', tab: 'all' },
@@ -47,7 +65,6 @@ const categories = [
 const route = useRoute()
 
 onMounted(async () => {
-  console.log('*******OnMounted********')
   getContentData()
 })
 
@@ -65,16 +82,67 @@ const getContentData = async () => {
     tab: currentTab.value
   })
   if (result?.code === 200 && result?.data?.length) {
-    console.log(result.data)
     content.list = result.data
   }
 }
 const { list } = toRefs(content)
+
+// 店铺id
+const shopId = ref(route.params.id)
+
+// vuex中购物车响应数据
+const store = useStore()
+const cartList = store.state.cartList
+
+// 改变购物车信息
+const changeCartItemInfo = (shopId, productId, productInfo, num) => {
+  store.commit('changeCartItemInfo', {
+    shopId,
+    productId,
+    productInfo,
+    num
+  })
+
+  // 计算该店铺商品的数量和总价
+  const productList = cartList[shopId]?.productList
+  const result = {
+    total: 0,
+    price: 0,
+    allChecked: true
+  }
+  if (productList) {
+    for (const i in productList) {
+      const product = productList[i]
+      result.total += product.count
+      if (product.check) {
+        result.price += product.count * product.price
+      }
+      if (product.count > 0 && !product.check) {
+        result.allChecked = false
+      }
+    }
+  }
+  result.price = result.price.toFixed(2)
+  store.commit('setTotal', { shopId, total: result })
+}
+
+const getProductCartCount = (shopId, productId) => {
+  return cartList?.[shopId]?.productList?.[productId]?.count || 0
+}
+
+const changeShop = (shopId) => {
+  store.commit('changeShop', shopId)
+}
+
+const changeCartItem = (shopId, productId, item, num) => {
+  changeCartItemInfo(shopId, productId, item, num)
+  changeShop(shopId)
+}
 </script>
 
 <style lang="scss" scoped>
-@import '../style/virables.scss';
-@import '../style/mixins.scss';
+@import '../../style/virables.scss';
+@import '../../style/mixins.scss';
 .content {
   display: flex;
   position: absolute;
